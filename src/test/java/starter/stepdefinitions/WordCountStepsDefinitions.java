@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import starter.screenplay.questions.WordCountFound;
-import starter.screenplay.tasks.AddSentece;
+import starter.screenplay.tasks.AddText;
 import starter.screenplay.tasks.NavigateTo;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -19,7 +19,7 @@ public class WordCountStepsDefinitions {
 
     @When("{actor} types the text {string}")
     public void theActorTypesTheText(Actor actor,String itemBox) {
-        actor.attemptsTo(AddSentece.simpleSentence(itemBox));
+        actor.attemptsTo(AddText.addText(itemBox));
     }
 
     @Then("the word counter should display {int}")

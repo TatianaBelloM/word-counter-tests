@@ -8,16 +8,15 @@ import starter.screenplay.ui.Locators;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
-@Subject("word count")
-public class WordCountFound implements Question<Integer> {
-
-    public static WordCountFound displayed(){
-        return new WordCountFound();
+@Subject("chararcter count")
+public class CharacterCountFound implements Question<Integer> {
+    public static CharacterCountFound displayed(){
+        return new CharacterCountFound();
     }
 
     @Override
     public Integer answeredBy(Actor actor){
-        actor.attemptsTo(WaitUntil.the(Locators.WORD_COUNT, isVisible())
+        actor.attemptsTo(WaitUntil.the(Locators.CHARACTER_COUNT, isVisible())
                 .forNoMoreThan(10).seconds()
         );
         return pollForStableValue(actor,3000);
@@ -27,7 +26,7 @@ public class WordCountFound implements Question<Integer> {
         long deadline = System.currentTimeMillis() + maxWaitMs;
         int previous = -1;
         while (System.currentTimeMillis() < deadline) {
-            String raw = Locators.WORD_COUNT
+            String raw = Locators.CHARACTER_COUNT
                     .resolveFor(actor).getText().trim().replaceAll("[^0-9]", "");
             int current = raw.isEmpty() ? 0 : Integer.parseInt(raw);
             if (current == previous && current >= 0) {
