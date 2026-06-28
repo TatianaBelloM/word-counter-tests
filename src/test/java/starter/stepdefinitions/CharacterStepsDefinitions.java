@@ -14,7 +14,7 @@ public class CharacterStepsDefinitions {
         Integer charactersFound = OnStage.theActorInTheSpotlight().asksFor(CharacterCountFound.displayed());
 
         assertThat(charactersFound)
-                .as("the word counter should show %d but it showed %d",expectCharacters,charactersFound)
+                .as("the character counter should show %d but it showed %d",expectCharacters,charactersFound)
                 .isEqualTo(expectCharacters);
     }
 }

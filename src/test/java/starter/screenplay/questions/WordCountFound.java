@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.annotations.Subject;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import starter.screenplay.ui.Locators;
+import starter.screenplay.ui.WordCounterPage;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
@@ -17,7 +17,7 @@ public class WordCountFound implements Question<Integer> {
 
     @Override
     public Integer answeredBy(Actor actor){
-        actor.attemptsTo(WaitUntil.the(Locators.WORD_COUNT, isVisible())
+        actor.attemptsTo(WaitUntil.the(WordCounterPage.WORD_COUNT, isVisible())
                 .forNoMoreThan(10).seconds()
         );
         return pollForStableValue(actor,3000);
@@ -27,7 +27,7 @@ public class WordCountFound implements Question<Integer> {
         long deadline = System.currentTimeMillis() + maxWaitMs;
         int previous = -1;
         while (System.currentTimeMillis() < deadline) {
-            String raw = Locators.WORD_COUNT
+            String raw = WordCounterPage.WORD_COUNT
                     .resolveFor(actor).getText().trim().replaceAll("[^0-9]", "");
             int current = raw.isEmpty() ? 0 : Integer.parseInt(raw);
             if (current == previous && current >= 0) {

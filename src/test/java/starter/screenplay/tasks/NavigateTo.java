@@ -3,11 +3,11 @@ package starter.screenplay.tasks;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Open;
-import starter.screenplay.ui.Locators;
+import starter.screenplay.ui.WordCounterPage;
 
 public class NavigateTo {
     public static Performable openUrl(){
         return Task.where("{0} opens the Word Count page",
-                Open.browserOn().the(Locators.class));
+                Open.browserOn().the(WordCounterPage.class));
     }
 }
