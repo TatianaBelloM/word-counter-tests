@@ -21,6 +21,8 @@ Feature: Word Count
       | well-known es algo                                                    | 3        |
       | it's a test                                                           | 3        |
       | hola                                                                  | 1        |
+      | <hola>                                                                | 1        |
+      | \"hola\"                                                              | 1        |
 
   Scenario Outline: Count words only with special characters
     When Tatiana types the text "<texto>"
@@ -32,8 +34,7 @@ Feature: Word Count
       | []*        |
       | ;.!#       |
       | ¡          |
-      | "<hola>        |
-
+      | ¿          |
 
   Scenario: Count words with only spaces
     When Tatiana types the text "   "
@@ -48,4 +49,8 @@ Feature: Word Count
       | 12343                                            | 1        |
       | 1232                                             | 1        |
       | 1232789234098780342509872435 1239810398123809123 | 2        |
+
+  Scenario: Count words separated by a line break
+    When Tatiana types the text "hola\nmundo"
+    Then the word counter should display 2
 

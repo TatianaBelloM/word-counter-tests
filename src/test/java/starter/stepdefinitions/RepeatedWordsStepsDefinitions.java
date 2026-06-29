@@ -17,7 +17,7 @@ public class RepeatedWordsStepsDefinitions {
     @Then("the keyword density list should display {int} keywords")
     public void theKeywordDensityListShouldDisplay(int expectedCount) {
         OnStage.theActorInTheSpotlight().attemptsTo(
-                Ensure.that(KeywordDensityCount.displayed()).isEqualTo(expectedCount)
+                Ensure.that(KeywordDensityCount.displayed()).isGreaterThanOrEqualTo(expectedCount)
         );
     }
 

@@ -18,8 +18,8 @@ public class WordCountStepsDefinitions {
     }
 
     @When("{actor} types the text {string}")
-    public void theActorTypesTheText(Actor actor,String itemBox) {
-        actor.attemptsTo(AddText.addText(itemBox));
+    public void theActorTypesTheText(Actor actor, String itemBox) {
+        actor.attemptsTo(AddText.addText(itemBox.replace("\\n", "\n")));
     }
 
     @Then("the word counter should display {int}")
@@ -27,7 +27,7 @@ public class WordCountStepsDefinitions {
         Integer wordsFound = OnStage.theActorInTheSpotlight().asksFor(WordCountFound.displayed());
 
         assertThat(wordsFound)
-                .as("the word counter should show %d but it showed %d",expectedWord,wordsFound)
+                .as("the word counter should show %d but it showed %d", expectedWord, wordsFound)
                 .isEqualTo(expectedWord);
     }
 }
