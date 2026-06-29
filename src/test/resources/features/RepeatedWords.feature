@@ -9,9 +9,9 @@ Feature: Repeated Words
   Scenario Outline: Identify the three most frequently repeated words in a text
     When Tatiana types the text "<Text>"
     Then the keyword density list should display 3 keywords
-    Then the top 1 keyword should be "<first_word>" with count "<first_count>"
-    Then the top 2 keyword should be "<second_word>" with count "<second_count>"
-    Then the top 3 keyword should be "<third_word>" with count "<third_count>"
+    Then the top 1 keyword should be "<first_word>" with count <first_count>
+    Then the top 2 keyword should be "<second_word>" with count <second_count>
+    Then the top 3 keyword should be "<third_word>" with count <third_count>
 
     Examples:
       | Text                                                                                                                                                             | first_word | first_count | second_word | second_count | third_word | third_count |
@@ -24,8 +24,8 @@ Feature: Repeated Words
   Scenario Outline: Identify which word is repeated most often in a text with two keywords
     When Tatiana types the text "<Text>"
     Then the keyword density list should display 2 keywords
-    Then the top 1 keyword should be "<first_word>" with count "<first_count>"
-    Then the top 2 keyword should be "<second_word>" with count "<second_count>"
+    Then the top 1 keyword should be "<first_word>" with count <first_count>
+    Then the top 2 keyword should be "<second_word>" with count <second_count>
 
     Examples:
       | Text                 | first_word | first_count | second_word | second_count |
@@ -34,7 +34,7 @@ Feature: Repeated Words
 
   Scenario Outline: Identify the words that are repeated most frequently in a text when the word is a number
     When Tatiana types the text "<number>"
-    Then the top 1 keyword should be "<first_word>" with count "<first_count>"
+    Then the top 1 keyword should be "<first_word>" with count <first_count>
 
     Examples:
       | number                                                                                                                                                   | first_word | first_count |
@@ -44,11 +44,11 @@ Feature: Repeated Words
 
   Scenario: Identify the most frequently repeated word by mixing uppercase and lowercase letters.
     When Tatiana types the text "Hola hola HOLA"
-    Then the top 1 keyword should be "hola" with count "3"
+    Then the top 1 keyword should be "hola" with count 3
 
   Scenario Outline: Check keyword density when special characters are present.
     When Tatiana types the text "<Text>"
-    Then the top 1 keyword should be "<first_word>" with count "<first_count>"
+    Then the top 1 keyword should be "<first_word>" with count <first_count>
 
     Examples:
       | Text                    | first_word | first_count |

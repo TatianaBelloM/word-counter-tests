@@ -1,11 +1,11 @@
-package starter.stepdefinitions;
+package com.lumu.qa.stepdefinitions;
 
 import io.cucumber.java.en.Then;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import starter.screenplay.questions.KeywordDensityCount;
-import starter.screenplay.questions.TopKeywordCount;
-import starter.screenplay.questions.TopKeywordWord;
+import com.lumu.qa.screenplay.questions.KeywordDensityCount;
+import com.lumu.qa.screenplay.questions.TopKeywordCount;
+import com.lumu.qa.screenplay.questions.TopKeywordWord;
 
 
 public class RepeatedWordsStepsDefinitions {
@@ -17,8 +17,8 @@ public class RepeatedWordsStepsDefinitions {
         );
     }
 
-    @Then("the top {int} keyword should be {string} with count {string}")
-    public void theTopKeywordShouldBeWithCount(int position, String word, String count) {
+    @Then("the top {int} keyword should be {string} with count {int}")
+    public void theTopKeywordShouldBeWithCount(int position, String word, int count) {
         OnStage.theActorInTheSpotlight().attemptsTo(
                 Ensure.that(TopKeywordWord.atPosition(position)).isEqualTo(word),
                 Ensure.that(TopKeywordCount.atPosition(position)).isEqualTo(count)
