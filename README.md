@@ -80,6 +80,7 @@ Las siguientes reglas definen cómo WordCounter interpreta el texto ingresado:
 3. **Números** — Se cuentan como palabras y aparecen en la sección de *Keyword Density*.
 4. **Signos de apertura `¿` y `¡`** — No se cuentan como palabras independientes.
 5. **Espacios y saltos de línea** — Cuentan como **caracteres** y funcionan como **separadores de palabras**.
+6. **Palabras conectoras** — Palabras como `and`, `or`, `then` no aparecen en la sección de *Keyword Density*.
 
 ---
 
