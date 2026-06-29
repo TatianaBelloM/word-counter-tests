@@ -2,9 +2,10 @@ package starter.screenplay.questions;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
-import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.targets.Target;
+import net.serenitybdd.screenplay.waits.WaitUntil;
+
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class KeywordDensityCount implements Question<Integer>{
 
@@ -17,8 +18,7 @@ public class KeywordDensityCount implements Question<Integer>{
 
     @Override
     public Integer answeredBy(Actor actor) {
-        return BrowseTheWeb.as(actor)
-                .findAll("#kwd-accordion-data a.list-group-item")
-                .size();
+        actor.attemptsTo(WaitUntil.the(KEYWORD_ITEMS, isVisible()).forNoMoreThan(10).seconds());
+        return KEYWORD_ITEMS.resolveAllFor(actor).size();
     }
 }

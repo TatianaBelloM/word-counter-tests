@@ -25,6 +25,10 @@ public class TopKeywordCount implements Question<String> {
         Target count = Target.the("keyword count at position " + position)
                 .locatedBy("#kwd-accordion-data a.list-group-item:nth-child(" + position + ") span.badge");
         actor.attemptsTo(WaitUntil.the(count, isVisible()).forNoMoreThan(10).seconds());
-        return Text.of(count).answeredBy(actor).split(" ")[0];
+        String text = Text.of(count).answeredBy(actor);
+        if (text == null || text.trim().isEmpty()) {
+            throw new IllegalStateException("Badge text was empty for keyword at position " + position);
+        }
+        return text.trim().split(" ")[0];
     }
 }

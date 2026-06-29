@@ -22,7 +22,10 @@ Feature: Word Count
       | it's a test                                                           | 3        |
       | hola                                                                  | 1        |
       | <hola>                                                                | 1        |
-      | \"hola\"                                                              | 1        |
+
+  Scenario: Count words in text enclosed in double quotes
+    When Tatiana types the text '"hola"'
+    Then the word counter should display 1
 
   Scenario Outline: Count words only with special characters
     When Tatiana types the text "<texto>"

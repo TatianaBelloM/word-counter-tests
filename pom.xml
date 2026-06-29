@@ -103,6 +103,12 @@
         </dependency>
     </dependencies>
     <build>
+        <testSourceDirectory>com.lumu.qa/src/test/java</testSourceDirectory>
+        <testResources>
+            <testResource>
+                <directory>com.lumu.qa/src/test/resources</directory>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

@@ -1,10 +1,8 @@
 package starter.stepdefinitions;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.screenplay.actors.OnStage;
 import starter.screenplay.questions.CharacterCountFound;
-import starter.screenplay.questions.WordCountFound;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
